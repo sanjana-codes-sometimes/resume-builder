@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="card">
+  <div class="preview-header">
+    <h1>{{ r.name or "Your Name" }}</h1>
+    {% if r.title %}<p>{{ r.title }}</p>{% endif %}
+    <p class="muted">
+      {% if r.email %}{{ r.email }}{% endif %}
+      {% if r.phone %} | {{ r.phone }}{% endif %}
+      {% if r.location %} | {{ r.location }}{% endif %}
+    </p>
+  </div>
+
+  {% if r.summary %}
+  <h3>Summary</h3>
+  <p>{{ r.summary }}</p>
+  {% endif %}
+
+  {% if r.skills %}
+  <h3>Skills</h3>
+  <ul class="cols">
+    {% for s in r.skills %}<li>{{ s }}</li>{% endfor %}
+  </ul>
+  {% endif %}
+
+  {% if r.experience %}
+  <h3>Experience</h3>
+  <ul>{% for e in r.experience %}<li>{{ e }}</li>{% endfor %}</ul>
+  {% endif %}
+
+  {% if r.projects %}
+  <h3>Projects</h3>
+  <ul>{% for p in r.projects %}<li>{{ p }}</li>{% endfor %}</ul>
+  {% endif %}
+
+  {% if r.education %}
+  <h3>Education</h3>
+  <ul>{% for ed in r.education %}<li>{{ ed }}</li>{% endfor %}</ul>
+  {% endif %}
+
+  {% if r.links %}
+  <h3>Links</h3>
+  <ul>{% for l in r.links %}<li>{{ l }}</li>{% endfor %}</ul>
+  {% endif %}
+
+  <div class="actions">
+    <a class="button" href="{{ url_for('download_pdf') }}">Download PDF</a>
+    <a class="button secondary" href="{{ url_for('form') }}">Edit</a>
+  </div>
+</div>
+{% endblock %}

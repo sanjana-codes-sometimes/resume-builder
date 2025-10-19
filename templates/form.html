@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% block content %}
+<form method="post" class="card">
+  <h3>Your details</h3>
+  <label>Name <input name="name" required></label>
+  <label>Headline/Title <input name="title" placeholder="e.g., Associate Software Developer"></label>
+  <div class="grid-3">
+    <label>Email <input name="email" type="email" placeholder="you@example.com"></label>
+    <label>Phone <input name="phone" placeholder="+91-..."></label>
+    <label>Location <input name="location" placeholder="Bengaluru, IN"></label>
+  </div>
+
+  <label>Summary
+    <textarea name="summary" rows="3" placeholder="2-3 sentence professional summary"></textarea>
+  </label>
+
+  <h3>Sections (one item per line; commas also work)</h3>
+  <label>Skills
+    <textarea name="skills" rows="3" placeholder="Python, Flask, SQL, ..."></textarea>
+  </label>
+
+  <label>Experience
+    <textarea name="experience" rows="6" placeholder="Company — Role, Dates — 1–2 impact bullets"></textarea>
+  </label>
+
+  <label>Projects
+    <textarea name="projects" rows="4" placeholder="Project name — tech — what you built/impact"></textarea>
+  </label>
+
+  <label>Education
+    <textarea name="education" rows="3" placeholder="Degree — School — Year"></textarea>
+  </label>
+
+  <label>Links
+    <textarea name="links" rows="2" placeholder="LinkedIn URL, GitHub URL, Portfolio"></textarea>
+  </label>
+
+  <button type="submit">Preview</button>
+</form>
+{% endblock %}
